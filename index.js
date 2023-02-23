@@ -10,7 +10,7 @@ const qhyClients = [{getOwnParticipant: () => {
 listCommandUsed = Date.now();
 let ownerUser = {
 	username: "Anonygold",
-	discriminator: "3455"
+	discriminator: "9668"
 };
 const numberFormatter = Intl.NumberFormat("en-US", {
 	maximumFractionDigits: 3,
