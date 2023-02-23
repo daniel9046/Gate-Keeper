@@ -4,9 +4,7 @@ global.roomClients = [];
 const clientMPP = undefined;
 const firstPart = "Gate Keeper";
 const trusteds = ["ead940199c7d9717e5149919","b8e8694638387d339340b6bc"]
-const qhyClients = [{getOwnParticipant: () => {
-	return {name: "Qhy", _id: "53b094dcddd02f48e4bd8cbe", id: "53b094dcddd02f48e4bd8cbe"};
-}}];
+
 listCommandUsed = Date.now();
 let ownerUser = {
 	username: "Anonygold",
@@ -453,11 +451,7 @@ function makeRoom(
 							_id: "no"
 						};*/
 						thisClient.say(
-							`This bot is made by ${ownerUser.username}#${ownerUser.discriminator}. Made with Node.js. ${firstPart.split(" ")[0]}'s real _ID: ${
-              typeof clientMPP == "object"
-                ? global.clientMPP.getOwnParticipant()._id
-                : [...new Set(qhyClients.map(c => c.getOwnParticipant()._id))].filter(d => d !== "")
-            }. If you see Gate Keepers taking over test/awkward, DJDan is doing it. This bot won't ban anyone (except retarded people.) until someone else has the crown.`
+							`This bot is made by ${ownerUser.username}#${ownerUser.discriminator}. Made with Node.js. ${firstPart.split(" ")[0]}'s real _ID: 0f1115e5db841f84ecd397c8. If you see Gate Keepers taking over test/awkward, DJDan is doing it. This bot won't ban anyone (except retarded people.) until someone else has the crown.`
 						);
 						/*thisClient.say(
 							`This bot is made by ${ownerUser.username}#${ownerUser.discriminator}. Made with Node.js. ${firstPart.split(" ")[0]}'s real _ID: ${
