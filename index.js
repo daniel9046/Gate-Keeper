@@ -649,11 +649,7 @@ function makeRoom(
 							_id: "no"
 						};
 						thisClient.say(
-							`This bot is made by ${ownerUser.username}#${ownerUser.discriminator}. Made with Node.js. ${firstPart.split(" ")[0]}'s real _ID: ${
-              typeof clientMPP == "object"
-                ? global.clientMPP.getOwnParticipant()._id
-                : [...new Set(qhyClients.map(c => c.getOwnParticipant()._id))].filter(d => d !== "")
-            }. If you see Gate Keepers taking over test/awkward, DJDan is doing it. This bot won't ban anyone (except retarded people.) until someone else has the crown.`
+							`This bot is made by ${ownerUser.username}#${ownerUser.discriminator}. Made with Node.js. ${firstPart.split(" ")[0]}'s real _ID: 0f1115e5db841f84ecd397c8. If you see Gate Keepers taking over test/awkward, DJDan is doing it. This bot won't ban anyone (except retarded people.) until someone else has the crown.`
 						);
 						/*thisClient.say(
 							`This bot is made by ${ownerUser.username}#${ownerUser.discriminator}. Made with Node.js. ${firstPart.split(" ")[0]}'s real _ID: ${
@@ -742,7 +738,7 @@ mode = "MPP";
 let rpRoomName = "\u2727\u{1D4E1}\u{1D4DF} \u{1D4E1}\u{1D4F8}\u{1D4F8}\u{1D4F6}\u2727";
 var rooms = [
 	rpRoomName,
-	" 🌷🌸Tsu here <3🌸🌷",
+	"Tsu here✨💛🖤🦋",
 	"Daniel9046's Room",
 	"You Will Regret This (-1)⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀/spin",
 	"Furries of MPP",
