@@ -7,6 +7,9 @@ const trusteds = [
 	"ead940199c7d9717e5149919", //Hri7566
 	"b8e8694638387d339340b6bc", //daniel9046
 	"3f9996701728f236bd8cddee", //tsunami
+	"a41651bf8a46bafc5548dad6", //Lapis
+	"8956941e9807fc3991035dcf", //someone8448
+	"e31fa53f49bd0395b9ae8015", //James(mod)
 ]
 listCommandUsed = Date.now();
 let ownerUser = {
