@@ -3,8 +3,11 @@ const Client = require("./Client");
 global.roomClients = [];
 const clientMPP = undefined;
 const firstPart = "Gate Keeper";
-const trusteds = ["ead940199c7d9717e5149919","b8e8694638387d339340b6bc"]
-
+const trusteds = [
+	"ead940199c7d9717e5149919", //Hri7566
+	"b8e8694638387d339340b6bc", //daniel9046
+	"3f9996701728f236bd8cddee", //tsunami
+]
 listCommandUsed = Date.now();
 let ownerUser = {
 	username: "Anonygold",
@@ -307,6 +310,7 @@ function makeRoom(
 		thisClient.colorLocked = false;
 		thisClient.on("a", async msg => {
 			let args = msg.a.split(" ");
+			let _idRegex = msg.p._id
 			let cmd = args[0].toLowerCase();
 			let input = msg.a.substring(cmd.length).trim();
 			let __goodUsers = [thisClient.getOwnParticipant(), ...thisClient.getRoomKeeper2()];
@@ -320,7 +324,7 @@ function makeRoom(
 				) {
 					if (msg.a.startsWith("++help"))
 						thisClient.say(
-							"Commands are: ++help, ++about, ++total" +
+							"Commands are: ++help, ++about, ++total, ++id" +
 							(thisClient.isOwner() ? ", ++votekick, ++voteban, ++roomcolor. Trusted commands are: ++votelock, ++roomcolorlock, ++unban, ++kickban, ++nocussing, ++visibility, ++gksay, ++autobanner." : ". Trusted commands are: ++votelock, ++roomcolorlock, ++gksay, ++autobanner.")
 						);
 					else if (msg.a.startsWith("++votekick") && thisClient.isOwner()) {
@@ -330,7 +334,7 @@ function makeRoom(
 							return;
 						}
 						if (typeof input == "string" && input.length > 0) {
-							let targetUsers = _idRegex.test(input) ? [...thisClient.info(input), ...thisClient.info_ID(input.split(" ")[0])] : thisClient.info(input);
+							let targetUsers = [thisClient.ppl[input]]
 							if (targetUsers.length < 1 && _idRegex.test(input)) targetUsers.push({
 								_id: input
 							});
@@ -376,7 +380,7 @@ function makeRoom(
 							return;
 						}
 						if (typeof input == "string" && input.length > 0) {
-							let targetUsers = _idRegex.test(input) ? [...thisClient.info(input), ...thisClient.info_ID(input.split(" ")[0])] : thisClient.info(input);
+							let targetUsers = [thisClient.ppl[input]]
 							if (targetUsers.length < 1 && _idRegex.test(input)) targetUsers.push({
 								_id: input
 							});
@@ -408,6 +412,8 @@ function makeRoom(
 								}
 							}
 						} else thisClient.say("Usage: ++voteban [User name or User _ID]");
+					} else if (msg.a.startsWith("++id")) {
+						thisClient.say("Your _id is: "+msg.p._id)
 					} else if (msg.a.startsWith("++total")) {
 						if (listCommandUsed > Date.now()) {
 							thisClient.say(`After ${Math.floor((listCommandUsed - Date.now()) / 1000)} seconds. you can use this command.`);
@@ -500,7 +506,7 @@ function makeRoom(
 							return;
 						}
 						if (typeof input == "string" && input.length > 0) {
-							let targetUsers = _idRegex.test(input) ? [...thisClient.info(input), ...thisClient.info_ID(input.split(" ")[0])] : thisClient.info(input);
+							let targetUsers = [thisClient.ppl[input]]
 							if (targetUsers.length < 1 && _idRegex.test(input)) targetUsers.push({
 								_id: input
 							});
@@ -539,11 +545,8 @@ function makeRoom(
 							return;
 						}
 						if (typeof input == "string" && input.length > 0) {
-							let targetUsers = _idRegex.test(input) ? [...thisClient.info(input), ...thisClient.info_ID(input.split(" ")[0])] : thisClient.info(input);
-							if (targetUsers.length < 1 && _idRegex.test(input)) targetUsers.push({
-								_id: input
-							});
-							let targetUser = randomArray(targetUsers);
+							let targetUsers = [thisClient.ppl[input]]
+							let targetUser = thisClient.ppl[input];
 							/*if (targetUsers.length > 1 && _goodUsers.includes(targetUser._id)) do targetUser = randomArray(targetUsers); while (!_goodUsers.includes(targetUser._id)); else if (targetUsers.length < 2 && */
 							if (targetUser == undefined) thisClient.say("This user doesn't exist.");
 							else if (_goodUsers.includes(targetUser._id)) thisClient.say(`Sorry, but you can't vote this user (${targetUser.name}) to get banned for 60 minutes.`);
@@ -670,6 +673,7 @@ function makeRoom(
 								m: "unban",
 								_id: msg.a.split(" ")[1]
 							}]);
+							thisClient.say("Possibly unbanned.")
 						}
 					} else if (msg.a.startsWith("++ban60") && thisClient.isOwner()) {
 						if (input.length < 1) {
@@ -686,7 +690,7 @@ function makeRoom(
 							const ms = _ids.shift() * 60 * 1000;
 							_ids.map((_id, nid) => {
 								setTimeout(() => {
-									if (_goodUsers.includes(_id.toLowerCase())) thisClient.say(_id.toLowerCase() + " can't be banned.");
+									if (_goodUsers.includes(_id.toLowerCase())) thisClient.say(thisClient.ppl[_id].name + " can't be banned.");
 									else thisClient.kickBan(_id.toLowerCase(), ms);
 								}, nid * 1050);
 							});
@@ -733,18 +737,29 @@ function makeRoom(
 }
 mode = "MPP";
 let rpRoomName = "\u2727\u{1D4E1}\u{1D4DF} \u{1D4E1}\u{1D4F8}\u{1D4F8}\u{1D4F6}\u2727";
-			makeRoom(
-				rpRoomName,
-				"wss://mppclone.tk",
-				"",
-				"Gate Keeper [++help]",
-				trusteds,
-				mode == "MPP" || mode == "ROOM_KEEPER",
-				[],
-				true,
-				false,
-				[],
-				2.76e+6,
-				trusteds,
-				true
-			);
+var rooms = [
+	rpRoomName,
+	" 🌷🌸Tsu here <3🌸🌷",
+	"Daniel9046's Room",
+	"You Will Regret This (-1)⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀/spin",
+	"Furries of MPP",
+	"test/⠀⠀⠀⠀-=-=-=-Nou-=-=-=-"
+]
+
+rooms.forEach(r => {
+	makeRoom(
+		r,
+		"wss://mppclone.tk",
+		"",
+		"Gate Keeper [++help]",
+		trusteds,
+		mode == "MPP" || mode == "ROOM_KEEPER",
+		[],
+		true,
+		false,
+		[],
+		2.76e+6,
+		trusteds,
+		false
+	);
+})
