@@ -748,7 +748,7 @@ var rooms = [
 rooms.forEach(r => {
 	makeRoom(
 		r,
-		"wss://mppclone.tk",
+		"wss://mppclone.com",
 		"",
 		"Gate Keeper [++help]",
 		trusteds,
