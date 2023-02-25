@@ -10,6 +10,9 @@ const trusteds = [
 	"a41651bf8a46bafc5548dad6", //Lapis
 	"8956941e9807fc3991035dcf", //someone8448
 	"e31fa53f49bd0395b9ae8015", //James(mod)
+	"14b34ec99cab1c400fe1f47f", //PRESTO
+	"d83659faa26559ef46120d6e", //anonygold
+	"081c0c7405bdce8bb5344ab2", //merope
 ]
 listCommandUsed = Date.now();
 let ownerUser = {
@@ -460,7 +463,7 @@ function makeRoom(
 							_id: "no"
 						};*/
 						thisClient.say(
-							`This bot is made by ${ownerUser.username}#${ownerUser.discriminator}. Made with Node.js. ${firstPart.split(" ")[0]}'s real _ID: 0f1115e5db841f84ecd397c8. If you see Gate Keepers taking over test/awkward, DJDan is doing it. This bot won't ban anyone (except retarded people.) until someone else has the crown.`
+							`This bot is made by ${ownerUser.username}#${ownerUser.discriminator}. Made with Node.js. ${firstPart.split(" ")[0]}'s real _ID: 0f1115e5db841f84ecd397c8. If you see Gate Keepers taking over test/awkward, DJDan is doing it. This bot won't ban anyone (except unwanted people.) until someone else has the crown.`
 						);
 						/*thisClient.say(
 							`This bot is made by ${ownerUser.username}#${ownerUser.discriminator}. Made with Node.js. ${firstPart.split(" ")[0]}'s real _ID: ${
@@ -513,7 +516,7 @@ function makeRoom(
 							if (targetUsers.length < 1 && _idRegex.test(input)) targetUsers.push({
 								_id: input
 							});
-							let targetUser = randomArray(targetUsers);
+							let targetUser = targetUsers[0];
 							/*if (targetUsers.length > 1 && _goodUsers.includes(targetUser._id)) do targetUser = randomArray(targetUsers); while (!_goodUsers.includes(targetUser._id)); else if (targetUsers.length < 2 && **/
 							if (targetUser == undefined) thisClient.say("This user doesn't exist.");
 							else if (_goodUsers.includes(targetUser._id)) thisClient.say(`Sorry, but you can't vote this user (${targetUser.name}) to get kicked.`);
@@ -738,11 +741,12 @@ mode = "MPP";
 let rpRoomName = "\u2727\u{1D4E1}\u{1D4DF} \u{1D4E1}\u{1D4F8}\u{1D4F8}\u{1D4F6}\u2727";
 var rooms = [
 	rpRoomName,
-	"Tsu here✨💛🖤🦋",
-	"Daniel9046's Room",
+	"✧𝓣𝓼𝓾𝓷𝓪𝓶𝓲𝓼 𝓡𝓸𝓸𝓶✧",
+	"✧𝓓𝓪𝓷𝓲𝓮𝓵9046𝓼 𝓡𝓸𝓸𝓶✧",
 	"You Will Regret This (-1)⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀/spin",
 	"Furries of MPP",
-	"test/⠀⠀⠀⠀-=-=-=-Nou-=-=-=-"
+	"test/⠀⠀⠀⠀-=-=-=-Nou-=-=-=-",
+	"๖ۣۜH͜r̬i͡7566's NMPB "
 ]
 
 rooms.forEach(r => {
